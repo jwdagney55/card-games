@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.board {
+  background-color: red;
+  height: 10em
+}
+
+.card {
+  height: 4em;
+}
