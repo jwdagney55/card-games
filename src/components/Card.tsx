@@ -2,11 +2,17 @@ import React from 'react'
 import "../App.css"
 import deck from "./../assets/card-deck/cards"
 
-export default function Card() : JSX.Element {
+
+
+export default function Card({suit, value} : {suit: string, value: string}) : JSX.Element {
+    
+    const findCard = (suit:string, value:string): JSX.Element => {
+        return( <img className="card" alt={value + ' of ' + suit} src={deck[suit][value]}/>)
+    }
+    
     return(
         <div className="board">
-            <img className="card" alt="" src={deck[0]} />
-            <img className="card" alt="" src={deck[1]} />
+            {findCard(suit, value)}
         </div>
     )
 }
