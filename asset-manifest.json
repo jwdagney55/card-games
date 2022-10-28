@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/card-games/static/css/main.c11d1d75.css",
-    "main.js": "/card-games/static/js/main.bed8dda2.js",
+    "main.css": "/card-games/static/css/main.2ddd1e27.css",
+    "main.js": "/card-games/static/js/main.4407f3e2.js",
     "static/js/787.3d37f2e0.chunk.js": "/card-games/static/js/787.3d37f2e0.chunk.js",
     "static/media/queen_of_clubs2.png": "/card-games/static/media/queen_of_clubs2.ef480115313c1c393699.png",
     "static/media/king_of_hearts2.png": "/card-games/static/media/king_of_hearts2.67c7a87603fdc5b5e2f7.png",
@@ -55,14 +55,13 @@
     "static/media/2_of_spades.png": "/card-games/static/media/2_of_spades.b9261a5e22908925e4af.png",
     "static/media/2_of_hearts.png": "/card-games/static/media/2_of_hearts.c2cb81fb3d816683e15a.png",
     "static/media/2_of_diamonds.png": "/card-games/static/media/2_of_diamonds.a51b192d2f2ba1fc1d53.png",
-    "static/media/logo.svg": "/card-games/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/card-games/index.html",
-    "main.c11d1d75.css.map": "/card-games/static/css/main.c11d1d75.css.map",
-    "main.bed8dda2.js.map": "/card-games/static/js/main.bed8dda2.js.map",
+    "main.2ddd1e27.css.map": "/card-games/static/css/main.2ddd1e27.css.map",
+    "main.4407f3e2.js.map": "/card-games/static/js/main.4407f3e2.js.map",
     "787.3d37f2e0.chunk.js.map": "/card-games/static/js/787.3d37f2e0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c11d1d75.css",
-    "static/js/main.bed8dda2.js"
+    "static/css/main.2ddd1e27.css",
+    "static/js/main.4407f3e2.js"
   ]
 }
