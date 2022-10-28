@@ -2,10 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import GameBoard from './components/GameBoard';
+import Header from './components/Header'
 
 function App() {
   return (
     <div className="App">
+      {/*
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -20,6 +22,10 @@ function App() {
           Learn React
         </a>
       </header>
+  */}
+      <Header />
+      <div style={{padding:'0.1em', backgroundColor:'black'}}>
+      </div>
       <GameBoard />
     </div>
   );
