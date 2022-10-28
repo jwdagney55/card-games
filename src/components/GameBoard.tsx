@@ -16,10 +16,10 @@ export default function GameBoard() : JSX.Element {
     return(
         <div className = "board">
             <Row>
-                <Col  sm={2}>
+                <Col  sm={1}>
                     <GameColumn cardList={col1}></GameColumn>
                 </Col>
-                <Col sm={2}>
+                <Col sm={1}>
                     <GameColumn cardList={col2}></GameColumn>
                 </Col>
             </Row>
