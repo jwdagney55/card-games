@@ -31,10 +31,10 @@ export default function GameColumn({cardList}:{cardList:card[]}) : JSX.Element {
                     numHidden++
                 }
                 else{
-                    console.log('2em')
+                    //console.log('2em')
                     cardMarg = String(i*2 - hidden) + 'em'
                 }
-                console.log(c.suit + ' ' + c.value + ' ' + cardMarg)
+                //console.log(c.suit + ' ' + c.value + ' ' + cardMarg)
                 //let cardMarg:string = c.show ? String(i*2)+'em' : String(i*1) + 'em'
                 return (
                     <Card card={c} margin={cardMarg} key={c.value + ' of ' + c.suit} ></Card>

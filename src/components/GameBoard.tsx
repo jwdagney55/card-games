@@ -32,10 +32,10 @@ export default function GameBoard() : JSX.Element {
 
                 {
                     dealt.map( 
-                        (cardCol) => {
+                        (cardCol, i) => {
                             return(
                             <Col sm={1}>
-                                <GameColumn cardList={cardCol}></GameColumn>
+                                <GameColumn key={'col ' + String(i)} cardList={cardCol}></GameColumn>
                             </Col>
                             )
                         }
