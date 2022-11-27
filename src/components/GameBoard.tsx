@@ -6,36 +6,48 @@ import { Col, Row } from "react-bootstrap"
 import * as misc from '../utilities/misc'
 
 export default function GameBoard() : JSX.Element {
-    const [playDeck, setPlayDeck] = React.useState<card[]>(misc.make_deck());
-    /*
-    let c11:card = {value:'10', suit:'clubs', show:false}
-    let c12:card = {value:'3', suit:'diamonds', show:false}
-    let c13:card = {value:'2', suit:'hearts', show:true}
-    let c14:card = {value:'ace', suit:'spades', show:true}
-    let c15:card = {value:'7', suit:'clubs', show:true}
-    let c16:card = {value:'king', suit:'diamonds', show:true}
-    let col1:card[] = [c11,c12,c13,c14,c15,c16]
-    let c21:card = {value:'10', suit:'hearts', show:false}
-    let c22:card = {value:'4', suit:'clubs', show:false}
-    let c23:card = {value:'8', suit:'spades', show:false}
-    let c24:card = {value:'jack', suit:'clubs', show:false}
-    let c25:card = {value:'6', suit:'diamonds', show:true}
-    let c26:card = {value:'7', suit:'spades', show:true}
-    let col2:card[]  = [c21,c22,c23,c24,c25,c26]
-    */
+    const [playDeck, setPlayDeck] = React.useState<card[][]>(misc.deal_deck(misc.make_deck()));
+    const [movePile, setMovePile] = React.useState<card[]>([])
+    const [takePile, setTakePile] = React.useState<number>(-1)
+    const [putPile, setPutPile] = React.useState<number>(-1)
+    console.log(movePile)
+    console.log(takePile)
+    console.log(putPile)
 
-    let dealt:card[][] = misc.deal_deck(playDeck)
+
+    function updateDeck(put:number){
+        /*
+         * Assumes the deck is ready to be moved
+         * Called after the second click
+         * 
+         */
+        console.log("Updating deck")
+        for(let i = 0; i < playDeck[takePile].length; i++){
+            if(movePile[0].value === playDeck[takePile][i].value && movePile[0].suit === playDeck[takePile][i].suit){
+                playDeck[takePile] = playDeck[takePile].slice(0,i)
+                break
+            }
+        }
+        movePile.forEach((card:card) => {
+            console.log(card.value)
+            console.log(playDeck[put])
+            playDeck[put].push(card)
+        })
+        setPlayDeck(playDeck)
+        setPutPile(-1)
+        setTakePile(-1)
+    }
+
+
     return(
         <div className = "board">
             <Row>
-
-
                 {
-                    dealt.map( 
+                    playDeck.map( 
                         (cardCol, i) => {
                             return(
                             <Col sm={1}>
-                                <GameColumn key={'col ' + String(i)} cardList={cardCol}></GameColumn>
+                                <GameColumn key={'col ' + String(i)} cardRow = {i} cardList={cardCol} setMovePile={setMovePile} takePile={takePile} setTakePile={setTakePile} putPile={putPile} setPutPile={setPutPile} updateDeck={updateDeck}></GameColumn>
                             </Col>
                             )
                         }
