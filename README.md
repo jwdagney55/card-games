@@ -1,3 +1,20 @@
+# Dev Notes
+
+27 Feb 2025
+Update:
+Reintroduce myself to update the Game! Starting at least weekly development updates to the card-games folder
+
+Next Tasks:
+1. Still working on Alaska, cards are not following the rules so that's what we will get to next
+2. Maybe can add slots for the aces, easy victory
+3. Background image where the piles go, show empty columns when the cards are removed
+4. Maybe show the pile that you picked up (on the side, underneath...), remove it from the play area, so you know what is selected
+5. Tell the user on the screen that the move failed when it is an invalid move
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
