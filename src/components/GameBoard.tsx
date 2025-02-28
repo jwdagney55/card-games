@@ -10,6 +10,7 @@ export default function GameBoard() : JSX.Element {
     const [movePile, setMovePile] = React.useState<card[]>([])
     const [takePile, setTakePile] = React.useState<number>(-1)
     const [putPile, setPutPile] = React.useState<number>(-1)
+    console.log('****************-')
     console.log(movePile)
     console.log(takePile)
     console.log(putPile)
@@ -19,9 +20,12 @@ export default function GameBoard() : JSX.Element {
         /*
          * Assumes the deck is ready to be moved
          * Called after the second click
+         * Where do I verify that the pile can actually move though? It gotta be here
          * 
          */
         console.log("Updating deck")
+        //why do I need to find the spot back in the playDeck? Does it not get updated from activeCardList? 
+        //Can playDeck update the activeCardList for the GameColumn?
         for(let i = 0; i < playDeck[takePile].length; i++){
             if(movePile[0].value === playDeck[takePile][i].value && movePile[0].suit === playDeck[takePile][i].suit){
                 playDeck[takePile] = playDeck[takePile].slice(0,i)
@@ -36,6 +40,8 @@ export default function GameBoard() : JSX.Element {
         setPlayDeck(playDeck)
         setPutPile(-1)
         setTakePile(-1)
+        //setMovePile([]) //got a runtime error with this
+        //probably need movePile to be set back
     }
 
 

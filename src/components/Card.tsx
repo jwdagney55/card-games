@@ -16,6 +16,7 @@ export default function Card({card, margin, setMovePile, takePile, setTakePile, 
         putPile:number, setPutPile:() => void}) : JSX.Element {
 
     function handleClick() {
+        console.log(card.value + ' of ' + card.suit)
         if(takePile === -1){
             //player has not clicked on card yet
             setMovePile(card)
@@ -25,7 +26,10 @@ export default function Card({card, margin, setMovePile, takePile, setTakePile, 
             //player has clicked on a card but not placed the card
             setPutPile()
         }
-        console.log(card.value + ' of ' + card.suit)
+        else{
+            //setTakePile(-1)
+            //setPutPile(-1)
+        }
     }
 
     const findCard = (card : card): JSX.Element => {

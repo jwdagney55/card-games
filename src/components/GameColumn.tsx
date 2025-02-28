@@ -21,8 +21,19 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
 
     function helpSetTakePile(){
         setTakePile(cardRow)
-        setPutPile(-1)
+        setPutPile(-1) //needed?
         return
+    }
+
+    function helpSetMovePile(c:card){
+        for(let i = 0; i < activeCardList.length; i++){
+            if(c.value === activeCardList[i].value && c.suit === activeCardList[i].suit){
+                //movePile becomes the list after, and including, the found card
+                //activeCardList for this column becomes the list before, not including, the found card
+                setMovePile(activeCardList.slice(i))
+                setActiveCardList(activeCardList.slice(0,i))
+            }
+        }
     }
 
     function helpSetPutPile(){
@@ -30,17 +41,6 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
         setPutPile(cardRow)
         updateDeck(cardRow)
         return
-    }
-
-    function helpSetMovePile(c:card){
-        for(let i = 0; i < activeCardList.length; i++){
-            if(c.value === activeCardList[i].value && c.suit === activeCardList[i].suit){
-                setMovePile(activeCardList.slice(i))
-                setActiveCardList(activeCardList.slice(0,i))
-            }
-        }
-
-
     }
 
     return (
@@ -65,6 +65,7 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
                 //console.log(c.suit + ' ' + c.value + ' ' + cardMarg)
                 //let cardMarg:string = c.show ? String(i*2)+'em' : String(i*1) + 'em'
                 return (
+                    //Is this the problem with moving piles? Does takePile and putPile not always get updated here?
                     <Card card={c} margin={cardMarg} key={c.value + ' of ' + c.suit} setMovePile={helpSetMovePile} takePile={takePile} setTakePile={helpSetTakePile} putPile={putPile} setPutPile={helpSetPutPile} ></Card>
                 )
             })}
