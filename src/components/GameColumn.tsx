@@ -38,6 +38,7 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
 
     function helpSetPutPile(){
         console.log("helpSetPutPile")
+        //check put pile is valid
         setPutPile(cardRow)
         updateDeck(cardRow)
         return
@@ -49,7 +50,7 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
                 let cardMarg:string
                 let numHidden:number = 0
         
-                if(i == 0){
+                if(i === 0){
                     //console.log("0em")
                     cardMarg = '0em'
                 }

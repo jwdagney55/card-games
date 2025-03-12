@@ -1,6 +1,9 @@
 import {card} from '../interfaces/card'
 import deck from '../assets/card-deck/cards'
 
+export const value_dict: {[key:string]:number} = { 'ace':1, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, '10':10,
+                          'jack':11, 'queen':12, 'king':13}
+
 export function make_deck() : card[] {
   let newDeck:card[] = [];
   let suits:string[] = Object.keys(deck)

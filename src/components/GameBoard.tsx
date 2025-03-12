@@ -20,24 +20,37 @@ export default function GameBoard() : JSX.Element {
         /*
          * Assumes the deck is ready to be moved
          * Called after the second click
-         * Where do I verify that the pile can actually move though? It gotta be here
-         * 
+         * Parameters: column number of the put pile
          */
+        //checkt the move pile can be placed on the bottom of the put pile
         console.log("Updating deck")
+        console.log("The put pile is")
+        console.log(playDeck[put])
+        console.log("The take pile is")
+        console.log(playDeck[takePile])
+        console.log("Last card in put pile is: ")
+        console.log(playDeck[put][playDeck[put].length - 1])
+        console.log("first card in move pile is: ")
+        console.log(movePile[0])
+        console.log(playDeck[put][playDeck[put].length - 1].suit === movePile[0].suit)
+        console.log(Math.abs(misc.value_dict[playDeck[takePile][playDeck[takePile].length - 1 ].value] - misc.value_dict[movePile[0].value] ))
+        if(playDeck[put][playDeck[put].length - 1].suit === movePile[0].suit &&
+            Math.abs(misc.value_dict[playDeck[takePile][playDeck[takePile].length - 1 ].value] - misc.value_dict[movePile[0].value]) === 1){
+            for(let i = 0; i < playDeck[takePile].length; i++){
+                if(movePile[0].value === playDeck[takePile][i].value && movePile[0].suit === playDeck[takePile][i].suit){
+                    playDeck[takePile] = playDeck[takePile].slice(0,i)
+                    break
+                }
+            }
+            movePile.forEach((card:card) => {
+                console.log(card.value)
+                console.log(playDeck[put])
+                playDeck[put].push(card)
+            })
+            setPlayDeck(playDeck)
+        }
         //why do I need to find the spot back in the playDeck? Does it not get updated from activeCardList? 
         //Can playDeck update the activeCardList for the GameColumn?
-        for(let i = 0; i < playDeck[takePile].length; i++){
-            if(movePile[0].value === playDeck[takePile][i].value && movePile[0].suit === playDeck[takePile][i].suit){
-                playDeck[takePile] = playDeck[takePile].slice(0,i)
-                break
-            }
-        }
-        movePile.forEach((card:card) => {
-            console.log(card.value)
-            console.log(playDeck[put])
-            playDeck[put].push(card)
-        })
-        setPlayDeck(playDeck)
         setPutPile(-1)
         setTakePile(-1)
         //setMovePile([]) //got a runtime error with this
