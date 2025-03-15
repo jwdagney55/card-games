@@ -41,6 +41,7 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
         //check put pile is valid
         setPutPile(cardRow)
         updateDeck(cardRow)
+        setMovePile([])
         return
     }
 
