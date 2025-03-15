@@ -27,6 +27,7 @@ export default function Card({card, margin, setMovePile, takePile, setTakePile, 
             setPutPile()
         }
         else{
+            //setMovePile()
             //setTakePile(-1)
             //setPutPile(-1)
         }

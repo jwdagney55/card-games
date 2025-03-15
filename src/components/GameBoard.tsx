@@ -10,10 +10,13 @@ export default function GameBoard() : JSX.Element {
     const [movePile, setMovePile] = React.useState<card[]>([])
     const [takePile, setTakePile] = React.useState<number>(-1)
     const [putPile, setPutPile] = React.useState<number>(-1)
-    console.log('****************-')
-    console.log(movePile)
-    console.log(takePile)
-    console.log(putPile)
+    // console.log('****************-')
+    // console.log('Move pile')
+    // console.log(movePile)
+    // console.log('Take pile')
+    // console.log(takePile)
+    // console.log('Put pile')
+    // console.log(putPile)
 
 
     function updateDeck(put:number){
@@ -33,18 +36,20 @@ export default function GameBoard() : JSX.Element {
         console.log("first card in move pile is: ")
         console.log(movePile[0])
         console.log(playDeck[put][playDeck[put].length - 1].suit === movePile[0].suit)
-        console.log(Math.abs(misc.value_dict[playDeck[takePile][playDeck[takePile].length - 1 ].value] - misc.value_dict[movePile[0].value] ))
+        console.log(Math.abs(misc.value_dict[playDeck[put][playDeck[put].length - 1 ].value] - misc.value_dict[movePile[0].value]) === 1)
         if(playDeck[put][playDeck[put].length - 1].suit === movePile[0].suit &&
-            Math.abs(misc.value_dict[playDeck[takePile][playDeck[takePile].length - 1 ].value] - misc.value_dict[movePile[0].value]) === 1){
+            Math.abs(misc.value_dict[playDeck[put][playDeck[put].length - 1 ].value] - misc.value_dict[movePile[0].value]) === 1){
             for(let i = 0; i < playDeck[takePile].length; i++){
                 if(movePile[0].value === playDeck[takePile][i].value && movePile[0].suit === playDeck[takePile][i].suit){
+                    //buggggg need to make sure its the actual card from the take pile!!!
                     playDeck[takePile] = playDeck[takePile].slice(0,i)
+                    setPlayDeck(playDeck)
                     break
                 }
             }
             movePile.forEach((card:card) => {
-                console.log(card.value)
-                console.log(playDeck[put])
+                //console.log(card.value)
+                //console.log(playDeck[put])
                 playDeck[put].push(card)
             })
             setPlayDeck(playDeck)

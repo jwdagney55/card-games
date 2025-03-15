@@ -5,7 +5,8 @@ Update:
 Reintroduce myself to update the Game! Starting at least weekly development updates to the card-games folder
 
 Next Tasks:
-1. Still working on Alaska, cards are not following the rules so that's what we will get to next
+0. Clear the move pile from the game board after it was played 
+    DONE YAY, hopefully!
 2. Maybe can add slots for the aces, easy victory
 3. Background image where the piles go, show empty columns when the cards are removed
 4. Maybe show the pile that you picked up (on the side, underneath...), remove it from the play area, so you know what is selected
