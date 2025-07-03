@@ -15,8 +15,10 @@ function get_hidden(cards:card[]) : number {
 export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTakePile,putPile,setPutPile,updateDeck}:
     {cardList:card[], cardRow:number, setMovePile:(c: card[]) => void, takePile:number, setTakePile:(pile: number) => void, 
         putPile:number,setPutPile:(pile: number) => void, updateDeck:(put:number) => void}) : JSX.Element {
+    //activeCardList is a list of Cards that is currently visible for this column
     const [activeCardList, setActiveCardList] = React.useState<card[]>(cardList)
-    
+    //index of selected card
+    let moveCardIdx = -1
     let hidden = get_hidden(cardList)
 
     function helpSetTakePile(){
@@ -29,9 +31,8 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
         for(let i = 0; i < activeCardList.length; i++){
             if(c.value === activeCardList[i].value && c.suit === activeCardList[i].suit){
                 //movePile becomes the list after, and including, the found card
-                //activeCardList for this column becomes the list before, not including, the found card
                 setMovePile(activeCardList.slice(i))
-                setActiveCardList(activeCardList.slice(0,i))
+                moveCardIdx = i
             }
         }
     }
@@ -50,6 +51,7 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
             {cardList.map( function(c, i) {
                 let cardMarg:string
                 let numHidden:number = 0
+                let hyperDrive:string = "myCard"
         
                 if(i === 0){
                     //console.log("0em")
@@ -62,13 +64,17 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
                 }
                 else{
                     //console.log('2em')
+                    if(moveCardIdx > -1 && i >= moveCardIdx){
+                        hyperDrive = "selectedCard"
+                    }
                     cardMarg = String(i*2 - hidden) + 'em'
+
                 }
                 //console.log(c.suit + ' ' + c.value + ' ' + cardMarg)
                 //let cardMarg:string = c.show ? String(i*2)+'em' : String(i*1) + 'em'
                 return (
                     //Is this the problem with moving piles? Does takePile and putPile not always get updated here?
-                    <Card card={c} margin={cardMarg} key={c.value + ' of ' + c.suit} setMovePile={helpSetMovePile} takePile={takePile} setTakePile={helpSetTakePile} putPile={putPile} setPutPile={helpSetPutPile} ></Card>
+                    <Card card={c} myClass={hyperDrive} margin={cardMarg} key={c.value + ' of ' + c.suit} setMovePile={helpSetMovePile} takePile={takePile} setTakePile={helpSetTakePile} putPile={putPile} setPutPile={helpSetPutPile} ></Card>
                 )
             })}
         </div>

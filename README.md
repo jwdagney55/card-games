@@ -5,18 +5,18 @@ Update:
 Reintroduce myself to update the Game! Starting at least weekly development updates to the card-games folder
 
 Next Tasks:
-0. Clear the move pile from the game board after it was played 
-    DONE YAY, hopefully!
+0. Don't make the move pile disappear, but have it highlight or something
 2. Maybe can add slots for the aces, easy victory
 3. Background image where the piles go, show empty columns when the cards are removed
-4. Maybe show the pile that you picked up (on the side, underneath...), remove it from the play area, so you know what is selected
+4. Maybe show the pile that you picked up (on the side, underneath...), remove it from the play area, so you know what is selected, if we use
+    activeCardList in the GameColumn, then the picked up cards (movePile) is removed from that hand, and we can display the movePile somewhere 
+    else on the board
 5. Tell the user on the screen that the move failed when it is an invalid move
 6. Get hidden cards to become visiible when the last one is uncovered and clicked on
 
 Bugs:
-When moving `movePile` back and forth: something goes wrong
-Tried clearing`movePile with `setMovePile` in `GameBoard` after attempting to place it to no avail
-`movePile` is sometimes "undefined" when the user clicks to take pile, and clicks to put pile
+I think I solved it, don't update the activeCardList right away when you update movePile. activeCardList will get updated after the move is verified in GameBoard `updateDeck`
+When moving `movePile` back and forth: something goes wrong, I think the movePile cards never get put back into their original pile if the move fails
 
 
 

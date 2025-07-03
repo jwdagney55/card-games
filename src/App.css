@@ -67,3 +67,12 @@
   /*margin-bottom:0;*/
   grid-area: 1 / 1 / 2 / 2
 }
+
+
+.selectedCard {
+  height: 8em;
+  margin-top:4em;
+  /*margin-bottom:0;*/
+  grid-area: 1 / 1 / 2 / 2;
+  border: 10px solid rgb(8, 155, 69)
+}

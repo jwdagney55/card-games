@@ -11,8 +11,8 @@ function handleDragStart() {
 
 
 
-export default function Card({card, margin, setMovePile, takePile, setTakePile, putPile, setPutPile}:
-    {card:card, margin:string, setMovePile:(c: card) => void, takePile:number, setTakePile:() => void, 
+export default function Card({card, myClass, margin, setMovePile, takePile, setTakePile, putPile, setPutPile}:
+    {card:card, myClass:string, margin:string, setMovePile:(c: card) => void, takePile:number, setTakePile:() => void, 
         putPile:number, setPutPile:() => void}) : JSX.Element {
 
     function handleClick() {
@@ -35,7 +35,7 @@ export default function Card({card, margin, setMovePile, takePile, setTakePile, 
 
     const findCard = (card : card): JSX.Element => {
         if(card.show){
-            return (<img  onClick={handleClick} className="myCard"  style={{marginTop:margin}} alt={card.value + ' of ' + card.suit} src={deck[card.suit][card.value]}/>)
+            return (<img  onClick={handleClick} className={myClass}  style={{marginTop:margin}} alt={card.value + ' of ' + card.suit} src={deck[card.suit][card.value]}/>)
         }
         else{
             return( <img  className="myCard"  style={{marginTop:margin}} alt={card.value + ' of ' + card.suit} src={back}/>)
