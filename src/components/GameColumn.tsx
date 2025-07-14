@@ -12,13 +12,13 @@ function get_hidden(cards:card[]) : number {
     return hid
 }
 
-export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTakePile,putPile,setPutPile,updateDeck}:
+export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTakePile,putPile,setPutPile,cardIdx,updateDeck}:
     {cardList:card[], cardRow:number, setMovePile:(c: card[]) => void, takePile:number, setTakePile:(pile: number) => void, 
-        putPile:number,setPutPile:(pile: number) => void, updateDeck:(put:number) => void}) : JSX.Element {
+        putPile:number,setPutPile:(pile: number) => void, cardIdx:number,updateDeck:(put:number) => void}) : JSX.Element {
     //activeCardList is a list of Cards that is currently visible for this column
     const [activeCardList, setActiveCardList] = React.useState<card[]>(cardList)
+    const [moveCardIdx, setMoveCardIdx] = React.useState<number>(cardIdx)
     //index of selected card
-    let moveCardIdx = -1
     let hidden = get_hidden(cardList)
 
     function helpSetTakePile(){
@@ -34,7 +34,7 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
                 setMovePile(activeCardList.slice(i))
                 console.log(activeCardList.slice(i))
                 setActiveCardList(activeCardList.slice(0,i))
-                moveCardIdx = i
+                setMoveCardIdx(i)
             }
         }
         if(moveCardIdx < 0){
@@ -55,6 +55,7 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
     return (
         <div className='column1' >
             {cardList.map( function(c, i) {
+                console.log(moveCardIdx)
                 let cardMarg:string
                 let numHidden:number = 0
                 let hyperDrive:string = "myCard"
@@ -63,7 +64,7 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
                     //console.log("0em")
                     cardMarg = '0em'
                 }
-                else if( cardList[i-1].show === false){
+                else if( cardList[i].show === false){
                     //console.log('1em')
                     cardMarg = String(i * 1) + 'em'
                     numHidden++
@@ -71,6 +72,7 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
                 else{
                     //console.log('2em')
                     if(moveCardIdx > -1 && i >= moveCardIdx){
+                        console.log("These cards are selected")
                         hyperDrive = "selectedCard"
                     }
                     cardMarg = String(i*2 - hidden) + 'em'

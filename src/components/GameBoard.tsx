@@ -81,7 +81,7 @@ export default function GameBoard() : JSX.Element {
                     (cardCol, i) => {
                         return(
                         <Col sm={1}>
-                            <GameColumn key={'col ' + String(i)} cardRow = {i} cardList={cardCol} setMovePile={setMovePile} takePile={takePile} setTakePile={setTakePile} putPile={putPile} setPutPile={setPutPile} updateDeck={updateDeck}></GameColumn>
+                            <GameColumn key={'col ' + String(i)} cardRow = {i} cardList={cardCol} setMovePile={setMovePile} takePile={takePile} setTakePile={setTakePile} putPile={putPile} setPutPile={setPutPile} cardIdx={-1} updateDeck={updateDeck}></GameColumn>
                         </Col>
                         )
                     }
