@@ -37,6 +37,12 @@ export default function GameBoard() : JSX.Element {
         console.log(movePile[0])
         console.log(playDeck[put][playDeck[put].length - 1].suit === movePile[0].suit)
         console.log(Math.abs(misc.value_dict[playDeck[put][playDeck[put].length - 1 ].value] - misc.value_dict[movePile[0].value]) === 1)
+
+
+        //if the bottom card of the put pile matches suit with the top card of the move pile
+        //and the value of the bottom card of the put pile is one off of the top card of the move pile
+        //begin moving the cards around
+        //else try to put the cards back in place
         if(playDeck[put][playDeck[put].length - 1].suit === movePile[0].suit &&
             Math.abs(misc.value_dict[playDeck[put][playDeck[put].length - 1 ].value] - misc.value_dict[movePile[0].value]) === 1){
             for(let i = 0; i < playDeck[takePile].length; i++){
@@ -52,12 +58,16 @@ export default function GameBoard() : JSX.Element {
                 //console.log(playDeck[put])
                 playDeck[put].push(card)
             })
-            setPlayDeck(playDeck)
+            setPlayDeck([...playDeck])
+            setPutPile(-1)
+            setTakePile(-1)
+        }
+        else{
+            
+
         }
         //why do I need to find the spot back in the playDeck? Does it not get updated from activeCardList? 
         //Can playDeck update the activeCardList for the GameColumn?
-        setPutPile(-1)
-        setTakePile(-1)
         //setMovePile([]) //got a runtime error with this
         //probably need movePile to be set back
     }
@@ -66,18 +76,18 @@ export default function GameBoard() : JSX.Element {
     return(
         <div className = "board">
             <Row>
-                {
-                    playDeck.map( 
-                        (cardCol, i) => {
-                            return(
-                            <Col sm={1}>
-                                <GameColumn key={'col ' + String(i)} cardRow = {i} cardList={cardCol} setMovePile={setMovePile} takePile={takePile} setTakePile={setTakePile} putPile={putPile} setPutPile={setPutPile} updateDeck={updateDeck}></GameColumn>
-                            </Col>
-                            )
-                        }
-                    )
-
-                }
+            {
+                playDeck.map( 
+                    (cardCol, i) => {
+                        return(
+                        <Col sm={1}>
+                            <GameColumn key={'col ' + String(i)} cardRow = {i} cardList={cardCol} setMovePile={setMovePile} takePile={takePile} setTakePile={setTakePile} putPile={putPile} setPutPile={setPutPile} cardIdx={-1} updateDeck={updateDeck}></GameColumn>
+                        </Col>
+                        )
+                    }
+                )
+                
+            }
             </Row>
         </div>
     )
