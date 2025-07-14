@@ -18,6 +18,8 @@ Bugs:
 I think I solved it, don't update the activeCardList right away when you update movePile. activeCardList will get updated after the move is verified in GameBoard `updateDeck`
 When moving `movePile` back and forth: something goes wrong, I think the movePile cards never get put back into their original pile if the move fails
 
+Still not perfect, moving piles around fails sometimes, for some rhyme or reason. The error is the first card in movePile is undefined. The last card of the previous move pile sometimes gets duplicated. If you move the same pile twice in a row, it will duplicate ALL of the cards from the first moved pile if done back to back and with another move in between. Possibly a genius so we'll see. Fixed in helpSetMovePile setActiveCardList(activeCardList.slice(0,i))
+
 
 
 

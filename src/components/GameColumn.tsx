@@ -32,8 +32,14 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
             if(c.value === activeCardList[i].value && c.suit === activeCardList[i].suit){
                 //movePile becomes the list after, and including, the found card
                 setMovePile(activeCardList.slice(i))
+                console.log(activeCardList.slice(i))
+                setActiveCardList(activeCardList.slice(0,i))
                 moveCardIdx = i
             }
+        }
+        if(moveCardIdx < 0){
+            console.log("Could not find card in activeCardList")
+            setTakePile(-1)
         }
     }
 

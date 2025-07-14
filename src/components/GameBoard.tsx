@@ -58,12 +58,16 @@ export default function GameBoard() : JSX.Element {
                 //console.log(playDeck[put])
                 playDeck[put].push(card)
             })
-            setPlayDeck(playDeck)
+            setPlayDeck([...playDeck])
+            setPutPile(-1)
+            setTakePile(-1)
+        }
+        else{
+            
+
         }
         //why do I need to find the spot back in the playDeck? Does it not get updated from activeCardList? 
         //Can playDeck update the activeCardList for the GameColumn?
-        setPutPile(-1)
-        setTakePile(-1)
         //setMovePile([]) //got a runtime error with this
         //probably need movePile to be set back
     }
