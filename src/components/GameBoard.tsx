@@ -53,9 +53,11 @@ export default function GameBoard() : JSX.Element {
                     break
                 }
             }
+           let lastIdx:number = playDeck[put].length
             movePile.forEach((card:card) => {
                 //console.log(card.value)
                 //console.log(playDeck[put])
+                card.index = lastIdx++
                 playDeck[put].push(card)
             })
             setPlayDeck([...playDeck])
@@ -63,8 +65,9 @@ export default function GameBoard() : JSX.Element {
             setTakePile(-1)
         }
         else{
-            
-
+            setPlayDeck([...playDeck])
+            setPutPile(-1)
+            setTakePile(-1)
         }
         //why do I need to find the spot back in the playDeck? Does it not get updated from activeCardList? 
         //Can playDeck update the activeCardList for the GameColumn?

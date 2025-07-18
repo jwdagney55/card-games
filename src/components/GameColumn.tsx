@@ -52,10 +52,13 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
         return
     }
 
+    function helpCheckReveal(c:card){
+
+    }
+
     return (
         <div className='column1' >
             {cardList.map( function(c, i) {
-                console.log(moveCardIdx)
                 let cardMarg:string
                 let numHidden:number = 0
                 let hyperDrive:string = "myCard"
@@ -82,7 +85,7 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
                 //let cardMarg:string = c.show ? String(i*2)+'em' : String(i*1) + 'em'
                 return (
                     //Is this the problem with moving piles? Does takePile and putPile not always get updated here?
-                    <Card card={c} myClass={hyperDrive} margin={cardMarg} key={c.value + ' of ' + c.suit} setMovePile={helpSetMovePile} takePile={takePile} setTakePile={helpSetTakePile} putPile={putPile} setPutPile={helpSetPutPile} ></Card>
+                    <Card card={c} myClass={hyperDrive} margin={cardMarg} key={c.value + ' of ' + c.suit} setMovePile={helpSetMovePile} takePile={takePile} setTakePile={helpSetTakePile} putPile={putPile} setPutPile={helpSetPutPile} checkReveal={helpCheckReveal} ></Card>
                 )
             })}
         </div>

@@ -11,13 +11,18 @@ function handleDragStart() {
 
 
 
-export default function Card({card, myClass, margin, setMovePile, takePile, setTakePile, putPile, setPutPile}:
+export default function Card({card, myClass, margin, setMovePile, takePile, setTakePile, putPile, setPutPile, checkReveal}:
     {card:card, myClass:string, margin:string, setMovePile:(c: card) => void, takePile:number, setTakePile:() => void, 
-        putPile:number, setPutPile:() => void}) : JSX.Element {
+        putPile:number, setPutPile:() => void, checkReveal:(c: card) => void}) : JSX.Element {
 
     function handleClick() {
         console.log(card.value + ' of ' + card.suit)
-        if(takePile === -1){
+        console.log(card)
+        //check if the card is hidden and if it should be revealed
+        if(card.show === false){
+            checkReveal(card);
+        }
+        else if(takePile === -1){
             //player has not clicked on card yet
             setMovePile(card)
             setTakePile()
