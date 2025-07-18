@@ -43,7 +43,7 @@ export default function Card({card, myClass, margin, setMovePile, takePile, setT
             return (<img  onClick={handleClick} className={myClass}  style={{marginTop:margin}} alt={card.value + ' of ' + card.suit} src={deck[card.suit][card.value]}/>)
         }
         else{
-            return( <img  className="myCard"  style={{marginTop:margin}} alt={card.value + ' of ' + card.suit} src={back}/>)
+            return( <img  onClick={handleClick} className="myCard"  style={{marginTop:margin}} alt={card.value + ' of ' + card.suit} src={back}/>)
         }
         
     }

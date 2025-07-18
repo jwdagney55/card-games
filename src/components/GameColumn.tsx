@@ -52,7 +52,14 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
         return
     }
 
+    //Should only be called from Card.tsx when a hidden card is clicked on
     function helpCheckReveal(c:card){
+        if(c.index === activeCardList.length - 1){
+            //this card is at the end of the pile
+            c.show = true
+            activeCardList[-1] = c
+            setActiveCardList([...activeCardList])
+        }
 
     }
 
