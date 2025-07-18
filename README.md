@@ -5,7 +5,6 @@ Update:
 Reintroduce myself to update the Game! Starting at least weekly development updates to the card-games folder
 
 Next Tasks:
-0. Don't make the move pile disappear, but have it highlight or something
 1. Combine helpSetTakePile and helpSetMovePile into one function to pass into Card
 2. Maybe can add slots for the aces, easy victory
 3. Background image where the piles go, show empty columns when the cards are removed
@@ -16,6 +15,8 @@ Bugs:
 Still not perfect, moving piles around fails sometimes, for some rhyme or reason. The error is the first card in movePile is undefined. The last card of the previous move pile sometimes gets duplicated. If you move the same pile twice in a row, it will duplicate ALL of the cards from the first moved pile if done back to back and with another move in between. Possibly a genius so we'll see. Fixed in helpSetMovePile setActiveCardList(activeCardList.slice(0,i))
 
 Can't select the top visible card of a pile? Think that bug is in GameColumn.tsx else if ( cardList[i-1].show === false){} because the i goes one past where it should. Need to work out how to do the margins better. Fixed... just didn't do i-1 (nothing visibly changed???)
+
+If you place a pile on the last pile that was moved, it will stay highlighted
 
 
 
@@ -61,6 +62,10 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+### `npm run deploy`
+
+Deploy this version to the github page.
 
 ## Learn More
 
