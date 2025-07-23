@@ -13,7 +13,7 @@ export function make_deck() : card[] {
     (suit) => {
       values.forEach(
         (value) => {
-          newDeck.push({value:value,suit:suit,show:true})
+          newDeck.push({value:value,suit:suit,show:true,index:0})
         }
       )
     }
@@ -44,6 +44,7 @@ export function deal_deck(deck:card[]) : card[][] {
   dealt[0].push(shuffled[0])
   let pos:number = 1
   for(let i = 1; i < 7; i++){
+    //columns
     dealt.push([])
     for(let j = 0; j < 5+i; j++){
       if(j < i){
@@ -52,6 +53,7 @@ export function deal_deck(deck:card[]) : card[][] {
       else{
         shuffled[pos].show = true
       }
+      shuffled[pos].index = j
       dealt[i].push(shuffled[pos])
       pos++;
     }
