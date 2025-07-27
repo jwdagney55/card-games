@@ -69,7 +69,6 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
                 let cardMarg:string
                 let numHidden:number = 0
                 let hyperDrive:string = "myCard"
-        
                 if(i === 0){
                     //console.log("0em")
                     cardMarg = '0em'

@@ -48,8 +48,9 @@ export default function GameBoard() : JSX.Element {
             for(let i = 0; i < playDeck[takePile].length; i++){
                 if(movePile[0].value === playDeck[takePile][i].value && movePile[0].suit === playDeck[takePile][i].suit){
                     //buggggg need to make sure its the actual card from the take pile!!!
+
                     playDeck[takePile] = playDeck[takePile].slice(0,i)
-                    setPlayDeck(playDeck)
+                    //setPlayDeck([...playDeck])
                     break
                 }
             }
@@ -60,12 +61,15 @@ export default function GameBoard() : JSX.Element {
                 card.index = lastIdx++
                 playDeck[put].push(card)
             })
+            // setPlayDeck([...playDeck])
+            // setPutPile(-1)
+            // setTakePile(-1)
             setPlayDeck([...playDeck])
             setPutPile(-1)
             setTakePile(-1)
         }
         else{
-            setPlayDeck([...playDeck])
+            setPlayDeck(playDeck)
             setPutPile(-1)
             setTakePile(-1)
         }
