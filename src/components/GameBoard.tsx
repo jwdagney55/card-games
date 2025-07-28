@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css"
 import {card} from "./../interfaces/card"
 import GameColumn from "./GameColumn";
+import AcesPile from "./AcesPile"
 import { Col, Row } from "react-bootstrap"
 import * as misc from '../utilities/misc'
 
@@ -79,9 +80,49 @@ export default function GameBoard() : JSX.Element {
         //probably need movePile to be set back
     }
 
+    function addToAcesPileHelper(oldCard:card): card{
+        let returnCard:card = oldCard
+        if(takePile !== -1 && putPile === -1){
+            //check the length of the movePile (should only be 1)
+            if(movePile.length !== 1){
+                let x = 1
+            }
+            else{
+                //check that movePile can be added to the ace Pile
+                if(oldCard.value === "template" && movePile[0].suit === oldCard.suit
+                    && movePile[0].value === "ace"){
+                    returnCard = movePile[0]
+                    playDeck[takePile].pop()
+                    setPlayDeck(playDeck)
+                }
+                else if(misc.value_dict[movePile[0].value] - misc.value_dict[oldCard.value]  === 1){
+                    returnCard = movePile[0]
+                    playDeck[takePile].pop()
+                    setPlayDeck(playDeck)
+                }
+            }
+        }
+        setTakePile(-1)
+        return returnCard
+    }
+
 
     return(
         <div className = "board">
+            <Row>
+                <Col sm={1}>
+                    <AcesPile suitName="spades" addToAcesPile = {addToAcesPileHelper}></AcesPile>
+                </Col>
+                <Col sm={1}>
+                    <AcesPile suitName="diamonds" addToAcesPile = {addToAcesPileHelper}></AcesPile>
+                </Col>
+                <Col sm={1}>
+                    <AcesPile suitName="clubs" addToAcesPile = {addToAcesPileHelper}></AcesPile>
+                </Col>
+                <Col sm={1}>
+                    <AcesPile suitName="hearts" addToAcesPile = {addToAcesPileHelper}></AcesPile>
+                </Col>
+            </Row>
             <Row>
             {
                 playDeck.map( 
