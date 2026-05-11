@@ -33,6 +33,8 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
                 //movePile becomes the list after, and including, the found card
                 setMovePile(activeCardList.slice(i))
                 console.log(activeCardList.slice(i))
+                //bug here if the next click doesn't work
+                //but how do I setActiveCardList? Back in the game board?
                 setActiveCardList(activeCardList.slice(0,i))
                 setMoveCardIdx(i)
             }

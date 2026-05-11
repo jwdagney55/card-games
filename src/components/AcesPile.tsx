@@ -20,12 +20,12 @@ export default function AcesPile({suitName,addToAcesPile}:{suitName:string,addTo
     let source
     if(topCard.value === "template"){
         return (
-            <img onClick={handleClick} className="myCard" alt={topCard.value + " of " + topCard.suit} src={abc[topCard.suit]}/>
+            <img onClick={handleClick} className="myCardAce" alt={topCard.value + " of " + topCard.suit} src={abc[topCard.suit]}/>
         )
     }
     else{
         return (
-            <img onClick={handleClick} className="myCard" alt={topCard.value + " of " + topCard.suit} src={deck[topCard.suit][topCard.value]}/>    
+            <img onClick={handleClick} className="myCardAce" alt={topCard.value + " of " + topCard.suit} src={deck[topCard.suit][topCard.value]}/>    
         )
     }
 }

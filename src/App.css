@@ -40,11 +40,27 @@
 .board {
   background-color: red;
   min-height: 800px;
-  min-width: 1200px;
+  min-width: 1000px;
   width: 80%;
   border-color: #9d52c5;
   border-style: solid;
-  border-width: 1em 1em 1em 1em
+  border-width: 1em 1em 1em 1em;
+  padding-left: 12px;
+}
+
+.aceRow {
+  background-color: rgb(87, 40, 40);
+  min-height: 10rem;
+  max-width: 640px;
+  width: 90%;
+  margin-left: 2em;
+  border-width: 1em;
+  border-style: double;
+  border-color:aliceblue
+}
+
+.playRow {
+  max-width: 80%;
 }
 
 
@@ -62,12 +78,31 @@
 }
 
 
+.aceColumn {
+  /*width:10%;
+  height: 8em;
+  */
+  padding-top:1rem;
+  padding-right:1rem;
+  margin-left:0.5rem;
+  margin-right:0.5rem;
+  padding-bottom:1rem;
+}
+
+
 .myCard {
   height: 8rem;
   margin-top:4rem;
   /*margin-bottom:0;*/
   grid-area: 1 / 1 / 2 / 2
 }
+
+.myCardAce {
+  height: 8rem;
+  /*margin-top:1rem;
+  /*margin-bottom:0;*/
+}
+
 
 
 .selectedCard {
