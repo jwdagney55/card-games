@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css"
 import {card} from "./../interfaces/card"
 import GameColumn from "./GameColumn";
+import AcesPile from "./AcesPile"
 import { Col, Row } from "react-bootstrap"
 import * as misc from '../utilities/misc'
 
@@ -67,11 +68,13 @@ export default function GameBoard() : JSX.Element {
             setPlayDeck([...playDeck])
             setPutPile(-1)
             setTakePile(-1)
+            setMovePile([])
         }
         else{
             setPlayDeck(playDeck)
             setPutPile(-1)
-            setTakePile(-1)
+            //setTakePile(-1)
+            setMovePile([])
         }
         //why do I need to find the spot back in the playDeck? Does it not get updated from activeCardList? 
         //Can playDeck update the activeCardList for the GameColumn?
@@ -79,15 +82,63 @@ export default function GameBoard() : JSX.Element {
         //probably need movePile to be set back
     }
 
+    function addToAcesPileHelper(oldCard:card): card{
+        let returnCard:card = oldCard
+        if(takePile !== -1 && putPile === -1){
+            //check the length of the movePile (should only be 1)
+            if(movePile.length !== 1){
+                let x = 1
+            }
+            else{
+                //check that movePile can be added to the ace Pile
+                if(oldCard.value === "template" && movePile[0].suit === oldCard.suit
+                    && movePile[0].value === "ace"){
+                    returnCard = movePile[0]
+                    playDeck[takePile].pop()
+                    setPlayDeck(playDeck)
+                }
+                else if(misc.value_dict[movePile[0].value] - misc.value_dict[oldCard.value]  === 1){
+                    returnCard = movePile[0]
+                    playDeck[takePile].pop()
+                    setPlayDeck(playDeck)
+                }
+            }
+        }
+        setTakePile(-1)
+        return returnCard
+    }
+
 
     return(
         <div className = "board">
-            <Row>
+            <Row className = "aceRow">
+                <Col>
+                    <div className = "aceColumn">
+                        <AcesPile suitName="spades" addToAcesPile = {addToAcesPileHelper}></AcesPile>
+                    </div>
+                </Col>
+                <Col>
+                    <div className = "aceColumn">
+                        <AcesPile suitName="diamonds" addToAcesPile = {addToAcesPileHelper}></AcesPile>
+                    </div>
+                </Col>
+                <Col>    
+                    <div className = "aceColumn">
+                        <AcesPile suitName="clubs" addToAcesPile = {addToAcesPileHelper}></AcesPile>
+                    </div>
+                </Col>
+                <Col>
+                    <div className = "aceColumn">
+                        <AcesPile suitName="hearts" addToAcesPile = {addToAcesPileHelper}></AcesPile>
+                    </div>
+                </Col>
+            </Row>
+            <Row className = "playRow">
             {
                 playDeck.map( 
                     (cardCol, i) => {
                         return(
-                        <Col sm={1}>
+                        <Col >
                             <GameColumn key={'col ' + String(i)} cardRow = {i} cardList={cardCol} setMovePile={setMovePile} takePile={takePile} setTakePile={setTakePile} putPile={putPile} setPutPile={setPutPile} cardIdx={-1} updateDeck={updateDeck}></GameColumn>
                         </Col>
                         )

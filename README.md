@@ -1,15 +1,20 @@
 # Dev Notes
 
+11 May 2026
+Update:
+Getting back into it. Yeah okay
+
+
 27 Feb 2025
 Update:
 Reintroduce myself to update the Game! Starting at least weekly development updates to the card-games folder
 
 Next Tasks:
 1. Combine helpSetTakePile and helpSetMovePile into one function to pass into Card
-2. Maybe can add slots for the aces, easy victory
+2. Maybe can add slots for the aces, easy victory || DONE
 3. Background image where the piles go, show empty columns when the cards are removed
 5. Tell the user on the screen that the move failed when it is an invalid move
-6. Get hidden cards to become visiible when the last one is uncovered and clicked on
+6. Get hidden cards to become visiible when the last one is uncovered and clicked on || DONE
 
 Bugs:
 Still not perfect, moving piles around fails sometimes, for some rhyme or reason. The error is the first card in movePile is undefined. The last card of the previous move pile sometimes gets duplicated. If you move the same pile twice in a row, it will duplicate ALL of the cards from the first moved pile if done back to back and with another move in between. Possibly a genius so we'll see. Fixed in helpSetMovePile setActiveCardList(activeCardList.slice(0,i))
