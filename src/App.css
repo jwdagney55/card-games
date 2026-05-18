@@ -59,6 +59,21 @@
   border-color:aliceblue
 }
 
+
+.reset_btn{
+  background-color: rgb(150, 10, 10);
+  min-height: 4rem;
+  max-width: 240px;
+  min-width: 160px;
+  width: 20%;
+  margin-right: 2em;
+  border-width: 1em;
+  border-style: double;
+  border-color: brown
+  
+}
+
+
 .playRow {
   max-width: 80%;
 }
@@ -112,3 +127,4 @@
   grid-area: 1 / 1 / 2 / 2;
   border: .15rem solid rgb(12, 148, 30)
 }
+

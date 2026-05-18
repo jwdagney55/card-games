@@ -3,7 +3,7 @@ import "../App.css"
 import {card} from "./../interfaces/card"
 import GameColumn from "./GameColumn";
 import AcesPile from "./AcesPile"
-import { Col, Row } from "react-bootstrap"
+import { Col, Row, Button } from "react-bootstrap"
 import * as misc from '../utilities/misc'
 
 export default function GameBoard() : JSX.Element {
@@ -109,28 +109,43 @@ export default function GameBoard() : JSX.Element {
     }
 
 
+    function handleButtonClick(){
+        let newDeck = misc.deal_deck(misc.make_deck())
+        setPlayDeck(newDeck)
+    }
+
+
     return(
         <div className = "board">
-            <Row className = "aceRow">
+            <Row>
                 <Col>
-                    <div className = "aceColumn">
-                        <AcesPile suitName="spades" addToAcesPile = {addToAcesPileHelper}></AcesPile>
-                    </div>
+                    <Row className = "aceRow">
+                        <Col>
+                            <div className = "aceColumn">
+                                <AcesPile suitName="spades" addToAcesPile = {addToAcesPileHelper}></AcesPile>
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className = "aceColumn">
+                                <AcesPile suitName="diamonds" addToAcesPile = {addToAcesPileHelper}></AcesPile>
+                            </div>
+                        </Col>
+                        <Col>    
+                            <div className = "aceColumn">
+                                <AcesPile suitName="clubs" addToAcesPile = {addToAcesPileHelper}></AcesPile>
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className = "aceColumn">
+                                <AcesPile suitName="hearts" addToAcesPile = {addToAcesPileHelper}></AcesPile>
+                            </div>
+                        </Col>
+                    </Row>
                 </Col>
                 <Col>
-                    <div className = "aceColumn">
-                        <AcesPile suitName="diamonds" addToAcesPile = {addToAcesPileHelper}></AcesPile>
-                    </div>
-                </Col>
-                <Col>    
-                    <div className = "aceColumn">
-                        <AcesPile suitName="clubs" addToAcesPile = {addToAcesPileHelper}></AcesPile>
-                    </div>
-                </Col>
-                <Col>
-                    <div className = "aceColumn">
-                        <AcesPile suitName="hearts" addToAcesPile = {addToAcesPileHelper}></AcesPile>
-                    </div>
+                    <Row className = "reset_btn">
+                        <Button onClick={handleButtonClick}>Reset Game</Button>
+                    </Row>
                 </Col>
             </Row>
             <Row className = "playRow">
