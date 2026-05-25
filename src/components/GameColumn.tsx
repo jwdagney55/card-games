@@ -51,6 +51,8 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
         setPutPile(cardRow)
         updateDeck(cardRow)
         setMovePile([])
+        //reset the move index to catch the bug where the cards are still highlighted
+        setMoveCardIdx(-1)
         return
     }
 
