@@ -109,8 +109,14 @@ export default function GameBoard() : JSX.Element {
     }
 
 
-    function handleButtonClick(){
+    function handleResetButtonClick(){
+        //need to do more to reset: doesn't reset everything if moves have been made
         let newDeck = misc.deal_deck(misc.make_deck())
+        setPlayDeck(newDeck)
+    }
+
+    function handleRefreshButtonClick(deck: card[][]){
+        let newDeck = deck
         setPlayDeck(newDeck)
     }
 
@@ -144,7 +150,10 @@ export default function GameBoard() : JSX.Element {
                 </Col>
                 <Col>
                     <Row className = "reset_btn">
-                        <Button onClick={handleButtonClick}>Reset Game</Button>
+                        <Button onClick={handleResetButtonClick}>Reset Game</Button>
+                    </Row>
+                    <Row className = "reset_btn">
+                        <Button onClick={() => handleRefreshButtonClick(playDeck)}>Refresh Game</Button>
                     </Row>
                 </Col>
             </Row>
