@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/card-games/static/css/main.c2386612.css",
-    "main.js": "/card-games/static/js/main.b356b21b.js",
+    "main.css": "/card-games/static/css/main.29d09caf.css",
+    "main.js": "/card-games/static/js/main.ebb8d111.js",
     "static/js/453.73ddcb6a.chunk.js": "/card-games/static/js/453.73ddcb6a.chunk.js",
     "static/media/queen_of_clubs2.png": "/card-games/static/media/queen_of_clubs2.ef480115313c1c393699.png",
     "static/media/king_of_hearts2.png": "/card-games/static/media/king_of_hearts2.67c7a87603fdc5b5e2f7.png",
@@ -16,6 +16,7 @@
     "static/media/king_of_spades2.png": "/card-games/static/media/king_of_spades2.fda148e5425c266a3a81.png",
     "static/media/queen_of_diamonds2.png": "/card-games/static/media/queen_of_diamonds2.911390541adb6dfd350a.png",
     "static/media/ace_of_spades.png": "/card-games/static/media/ace_of_spades.a24049b6038d0a8b2cc2.png",
+    "static/media/spades_template.png": "/card-games/static/media/spades_template.7d47de4b040221474af8.png",
     "static/media/10_of_clubs.png": "/card-games/static/media/10_of_clubs.1e849b9251f1cca97075.png",
     "static/media/9_of_clubs.png": "/card-games/static/media/9_of_clubs.8e317f622f55579618f6.png",
     "static/media/10_of_spades.png": "/card-games/static/media/10_of_spades.c9f933df0fb58bf52847.png",
@@ -32,15 +33,18 @@
     "static/media/8_of_hearts.png": "/card-games/static/media/8_of_hearts.cff7b360d1e2e4a7a364.png",
     "static/media/8_of_diamonds.png": "/card-games/static/media/8_of_diamonds.b1389da2bd2f2812f55c.png",
     "static/media/6_of_clubs.png": "/card-games/static/media/6_of_clubs.b44599ca5e9e11e61863.png",
+    "static/media/hearts_template.png": "/card-games/static/media/hearts_template.1a2ff70c960545e5a0d3.png",
     "static/media/7_of_spades.png": "/card-games/static/media/7_of_spades.1517728ea424d193c5a7.png",
     "static/media/6_of_spades.png": "/card-games/static/media/6_of_spades.1cbd30ed1339258d51c6.png",
     "static/media/ace_of_diamonds.png": "/card-games/static/media/ace_of_diamonds.326a309b8e2a520461bf.png",
+    "static/media/clubs_template.png": "/card-games/static/media/clubs_template.abf2064dc2218e2a097f.png",
     "static/media/5_of_clubs.png": "/card-games/static/media/5_of_clubs.4397c46fc191aad146bb.png",
     "static/media/7_of_hearts.png": "/card-games/static/media/7_of_hearts.fdc0fa83de201b4afbc8.png",
     "static/media/7_of_diamonds.png": "/card-games/static/media/7_of_diamonds.fe13bd1ba1c4b66c99d1.png",
     "static/media/6_of_diamonds.png": "/card-games/static/media/6_of_diamonds.b19504c11d0b1431a746.png",
     "static/media/6_of_hearts.png": "/card-games/static/media/6_of_hearts.3fff08359c2011f4e988.png",
     "static/media/5_of_spades.png": "/card-games/static/media/5_of_spades.bffe8ee0a4cc67bced90.png",
+    "static/media/diamonds_template.png": "/card-games/static/media/diamonds_template.49786b55c3600f042612.png",
     "static/media/5_of_hearts.png": "/card-games/static/media/5_of_hearts.f407aa6fa30d7a8a1683.png",
     "static/media/5_of_diamonds.png": "/card-games/static/media/5_of_diamonds.ced27ce3f458223d097c.png",
     "static/media/3_of_clubs.png": "/card-games/static/media/3_of_clubs.bbea0442d0b02b9f8b3d.png",
@@ -56,12 +60,12 @@
     "static/media/2_of_hearts.png": "/card-games/static/media/2_of_hearts.c2cb81fb3d816683e15a.png",
     "static/media/2_of_diamonds.png": "/card-games/static/media/2_of_diamonds.a51b192d2f2ba1fc1d53.png",
     "index.html": "/card-games/index.html",
-    "main.c2386612.css.map": "/card-games/static/css/main.c2386612.css.map",
-    "main.b356b21b.js.map": "/card-games/static/js/main.b356b21b.js.map",
+    "main.29d09caf.css.map": "/card-games/static/css/main.29d09caf.css.map",
+    "main.ebb8d111.js.map": "/card-games/static/js/main.ebb8d111.js.map",
     "453.73ddcb6a.chunk.js.map": "/card-games/static/js/453.73ddcb6a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c2386612.css",
-    "static/js/main.b356b21b.js"
+    "static/css/main.29d09caf.css",
+    "static/js/main.ebb8d111.js"
   ]
 }
