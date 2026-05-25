@@ -1,6 +1,7 @@
 import React from 'react'
 import {card} from '../interfaces/card'
 import Card from './Card'
+import FreeSpace from './FreeSpace'
 
 function get_hidden(cards:card[]) : number {
     let hid:number = 0
@@ -67,36 +68,49 @@ export default function GameColumn({cardList,cardRow,setMovePile,takePile,setTak
 
     }
 
-    return (
-        <div className='column1' >
-            {cardList.map( function(c, i) {
-                let cardMarg:string
-                let numHidden:number = 0
-                let hyperDrive:string = "myCard"
-                if(i === 0){
-                    //console.log("0em")
-                    cardMarg = '0em'
-                }
-                else if( cardList[i].show === false){
-                    //console.log('1em')
-                    cardMarg = String(i * 1) + 'em'
-                    numHidden++
-                }
-                else{
-                    //console.log('2em')
-                    if(moveCardIdx > -1 && i >= moveCardIdx){
-                        console.log("These cards are selected")
-                        hyperDrive = "selectedCard"
+    const showColOrFreeSpace = (myCardList: card[]): JSX.Element => {
+        if(myCardList.length > 0){
+            return (
+                <div className='column1' >
+                {cardList.map( function(c, i) {
+                    let cardMarg:string
+                    let numHidden:number = 0
+                    let hyperDrive:string = "myCard"
+                    if(i === 0){
+                        //console.log("0em")
+                        cardMarg = '0em'
                     }
-                    cardMarg = String(i*2 - hidden) + 'em'
+                    else if( cardList[i].show === false){
+                        //console.log('1em')
+                        cardMarg = String(i * 1) + 'em'
+                        numHidden++
+                    }
+                    else{
+                        //console.log('2em')
+                        if(moveCardIdx > -1 && i >= moveCardIdx){
+                            console.log("These cards are selected")
+                            hyperDrive = "selectedCard"
+                        }
+                        cardMarg = String(i*2 - hidden) + 'em'
 
-                }
-                //console.log(c.suit + ' ' + c.value + ' ' + cardMarg)
-                //let cardMarg:string = c.show ? String(i*2)+'em' : String(i*1) + 'em'
-                return (
-                    //Is this the problem with moving piles? Does takePile and putPile not always get updated here?
-                    <Card card={c} myClass={hyperDrive} margin={cardMarg} key={c.value + ' of ' + c.suit} setMovePile={helpSetMovePile} takePile={takePile} setTakePile={helpSetTakePile} putPile={putPile} setPutPile={helpSetPutPile} checkReveal={helpCheckReveal} ></Card>
-                )
-            })}
-        </div>
+                    }
+                    //console.log(c.suit + ' ' + c.value + ' ' + cardMarg)
+                    //let cardMarg:string = c.show ? String(i*2)+'em' : String(i*1) + 'em'
+                    return (
+                        //Is this the problem with moving piles? Does takePile and putPile not always get updated here?
+                        <Card card={c} myClass={hyperDrive} margin={cardMarg} key={c.value + ' of ' + c.suit} setMovePile={helpSetMovePile} takePile={takePile} setTakePile={helpSetTakePile} putPile={putPile} setPutPile={helpSetPutPile} checkReveal={helpCheckReveal} ></Card>
+                    )
+            })}</div>
+        )}
+        else{
+            return (
+                <div className="column1">
+                    <FreeSpace colIdx={cardRow}></FreeSpace>
+                </div>
+            )
+        }   
+    }
+
+    return (
+        showColOrFreeSpace(activeCardList)
     )}

@@ -119,7 +119,6 @@
 }
 
 
-
 .selectedCard {
   height: 8rem;
   margin-top:4rem;
@@ -128,3 +127,10 @@
   border: .15rem solid rgb(12, 148, 30)
 }
 
+
+.freeSpace {
+  height: 8rem;
+  margin-top:4rem;
+  background-color: gold;
+  grid-area: 1 / 1 / 2 / 2
+}

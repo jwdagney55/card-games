@@ -22,7 +22,9 @@ Still not perfect, moving piles around fails sometimes, for some rhyme or reason
 Can't select the top visible card of a pile? Think that bug is in GameColumn.tsx else if ( cardList[i-1].show === false){} because the i goes one past where it should. Need to work out how to do the margins better. Fixed... just didn't do i-1 (nothing visibly changed???)
 
 If you place a pile on the last pile that was moved, it will stay highlighted
-Need to work out cardList and activeCardList differences in GameColumn
+Need to work out cardList and activeCardList differences in GameColumn (this bug patched with string and duct tape 2026 May 25)
+
+Clicking on the 1st column will remove it from the list, probably a bug with columns with minimal cards in it
 
 
 
